@@ -1,0 +1,131 @@
+﻿/*@charset "utf-8";*/
+body,div,p,header,h2,h1,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,ul,li,dl,dt,dd,ol,nav,input,footer {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+body {
+    color: #000;
+    font-family: '苹方';
+    background: #f0eff5;
+    position: relative
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block
+}
+
+img {
+    border: 0;
+    width: 100%;
+    vertical-align: middle
+}
+
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both
+}
+
+.clearfix {
+    *zoom:1}
+
+input {
+    font-family: Arial,Helvetica,sans-serif
+}
+
+a {
+    text-decoration: none;
+    color: #fff
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer
+}
+
+.txt_c {
+    text-align: center
+}
+
+.txt_l {
+    text-align: left
+}
+
+.txt_r {
+    text-align: right
+}
+
+.val_t {
+    vertical-align: top
+}
+
+.val_m {
+    vertical-align: middle
+}
+
+.db {
+    display: block
+}
+
+.di {
+    display: inline
+}
+
+.dn {
+    display: none
+}
+
+.dib {
+    display: inline-block
+}
+
+.posi_r {
+    position: relative
+}
+
+.posi_a {
+    position: absolute
+}
+
+.posi_f {
+    position: fixed
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.bg_f {
+    background: #fff
+}
+
+i.orange {
+    color: #f3501d;
+    font-style: normal
+}
+
+i.blue {
+    color: #087ffd;
+    font-style: normal
+}
+
+i.red {
+    color: #e64a19;
+    font-style: normal
+}
+
+
+
+
+@media screen and (min-width: 414px) {
+            .marquee_text {
+                width: 59%;
+        }
+}

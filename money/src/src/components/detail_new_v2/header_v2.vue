@@ -1,5 +1,7 @@
 <template>
-    <b-header :lsrc="l_src" :titlec="title"></b-header>
+    <div>
+        <v-header :lsrc="l_src" :rsrc="r_src" :titlec="title"></v-header>
+    </div>
 </template>
 
 <script>
@@ -8,17 +10,17 @@ export default {
     data () {
         return {
             l_src: 'http://mapi.lieqicun.cn/static/images/img/left_icon.png',
-            title: '个人中心',
-            // position: 'static'
+            r_src: 'http://mapi.lieqicun.cn/static/images/img/refresh.png',
+            title: '应用详情',
         }
     },
     components: {
-       'b-header': header
+        'v-header': header,
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
- 
+
 </style>

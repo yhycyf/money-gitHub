@@ -1,5 +1,5 @@
 <template>
-    <a :style="bor"><span><img :src="iconsrc" /></span>{{title}}<em>{{rightTitle}}<img :src="imgsrc" /></em></a>
+    <a :style="bor"><span><img :src="iconsrc" /></span>{{title}}<em><img :src="imgsrc" /></em></a>
 </template>
 
 <script>
@@ -8,12 +8,11 @@ export default {
         iconsrc: {},
         imgsrc: {},
         title: {},
-        bor: {},
-        rightTitle: {}
+        bor: {}
     },
-    // created () {
-    //     console.log(this.bor)
-    // }
+    created () {
+        console.log(this.bor)
+    }
     
 }
 </script>
