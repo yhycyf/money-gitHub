@@ -7,24 +7,38 @@
 		<div class="income income_box">
 			<p>今日收益(元)：</p>
 			<div class="flex_box"> 
-				<h1 class="fl dn">580.00<b>元</b></h1>
-				<h1 class="fl"><i>竟然没有</i></h1>
+				<h1 class="fl" v-show="isShow">{{getdata.todayIncome}}<b>元</b></h1>
+				<h1 class="fl" v-show="!isShow"><i>竟然没有</i></h1>
 				<a class="tixian"><em>立即提现</em></a>
 			</div>
 			<div class="income_bot">
-				<p><span>5.00</span><br/>账户余额</p>
-				<p><span>100.00</span><br/>累计收入</p>
+				<p><span>{{getdata.balance}}</span><br/>账户余额</p>
+				<p><span>{{getdata.income}}</span><br/>累计收入</p>
 				<p><span>6</span><br/>今日收徒</p>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import store from '../../store'
 export default {
 	data () {
 		return {
-			dn: false
+			
 		}
+	},
+	computed: {
+        getdata () {
+            return this.$store.getters.getAllInfo
+		},
+		isShow () {
+			return this.$store.getters.getAllInfo.todayIncome > 0 ? true : false
+		}
+	},
+	created () {
+		
 	}
 }
 </script>

@@ -2,83 +2,19 @@
     <div class="yizhuan_box">
         <div class="xianshi_box">
             <!-- 普通限时任务 -->
-            <div class="xianshi_list">
+            <div class="xianshi_list" v-for="(item, index) in getdata" :index="index" :key="item.id">
                 <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b><img src="http://a2.mzstatic.com/us/r30/Purple1/v4/28/87/a5/2887a558-90a5-613d-1353-44873eae2a9e/icon200x200.png" /></b>
+                <b><img :src="item.icon"/></b>
                 <div class="xianshi_text fl">
-                    <h1>火车票</h1>
-                    <h2>剩余4577份</h2>
+                    <h1>{{item.keywords}}</h1>
+                    <h2>剩余{{item.hasLeftTasks}}份</h2>
                 </div>
                 <div class="xianshi_money wancheng">
-                    <p>+<span>2</span>元</p>
+                    <p>+<span>{{item.price}}</span>元</p>
                     <h3><i class="deep_red">进行中</i></h3>
                 </div>
                 <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-            </div>
-            
-            <div class="xianshi_list">
-                <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b></b>
-                <div class="xianshi_text fl">
-                    <h1>火车票</h1>
-                    <h2>剩余4577份</h2>
-                </div>
-                <div class="xianshi_money">
-                    <p>+<span>1</span>元</p>
-                </div>
-                <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-            </div>
-            <div class="xianshi_list">
-                <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b><img src="http://a2.mzstatic.com/us/r30/Purple18/v4/ac/7a/21/ac7a21f8-2195-bd28-c6ba-4fefb4a06c96/icon200x200.png" /></b>
-                <div class="xianshi_text fl">
-                    <h1>火车票<i>付费</i></h1>
-                    <h2>剩余4577份</h2>
-                </div>
-                <div class="xianshi_money">
-                    <p>+<span>2.5</span>元</p>
-                </div>
-                <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-            </div>
-            <div class="xianshi_list">
-                <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b><img src="http://a2.mzstatic.com/us/r30/Purple60/v4/f1/52/69/f15269d9-dacf-8cd4-1858-28bbca3f1365/icon200x200.png" /></b>
-                <div class="xianshi_text fl">
-                    <h1>火车票</h1>
-                    <h2>剩余4577份</h2>
-                </div>
-                <div class="xianshi_money wancheng">
-                    <p>+<span>2</span>元</p>
-                    <h3>已完成</h3>
-                </div>
-                <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-            </div>
-            <div class="xianshi_list">
-                <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b><img src="../../../static/images/img/ico1.png" /></b>
-                <div class="xianshi_text fl">
-                    <h1>火车票</h1>
-                    <h2>剩余4577份</h2>
-                </div>
-                <div class="xianshi_money">
-                    <p class="gray">+<span>1.5</span>元</p>
-                </div>
-                <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-                <div class="chaoshi"></div>
-            </div>
-            <div class="xianshi_list">
-                <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
-                <b><img src="../../../static/images/img/ico1.png" /></b>
-                <div class="xianshi_text fl">
-                    <h1>火车票</h1>
-                    <h2>剩余0份</h2>
-                </div>
-                <div class="xianshi_money">
-                    <p class="gray">+<span>2.5</span>元</p>
-                </div>
-                <em class="border_right"><img height="100%" src="../../../static/images/img/you.png" /></em>
-                <div class="qiangguang"></div>
-            </div>
+            </div>  
         </div>
         <div class="yugao_tishi">任务预告：精彩任务即将开始</div>
         <div class="xianshi_box">
@@ -109,23 +45,29 @@
         </div>
         <div class="foot_text">想赚更多？邀请好友，立得5元！</div>
         <div class="invite_btn"><a>邀请好友</a></div>
+        <!-- {{getdata[0].icon}} -->
     </div>
+    
 </template>
 
 <script>
 export default {
     data () {
         return {
-            left_title: '客服',
-            isShow: false,
+
         }
     },
+    computed: {
+        getdata () {
+            return this.$store.getters.getxianshi_Info
+        }
+    }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='less'>
-.yizhuan_box {
+// .yizhuan_box {
     .xianshi_list {
         height: 50px;
         overflow: hidden;
@@ -273,14 +215,11 @@ export default {
         padding: 15px 0;
         text-align: center;
     }
-    .yizhuan_box .invite_btn {
-        background: #3ab3ff;
-    }
     .invite_btn {
         margin: 0 35px 15px;
         height: 45px;
         line-height: 45px;
-        background: #3ab3ff;
+        background: #f3501d;
         border-radius: 5px;
     }
     .invite_btn a {
@@ -289,5 +228,5 @@ export default {
         display: block;
         text-align: center;
     }
-}
+// }
 </style>

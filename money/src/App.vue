@@ -8,19 +8,11 @@
 
 <script>
 import Vue from 'vue'
-import axios from 'axios'
 export default {
   data () {
     return {
-      info: {}
     }
   },
-  created () {
-    let LocalAPI = 'http://scorewall.lieqicun.cn/ios/index'
-    axios.post(LocalAPI).then((res) => {
-      console.log(res)
-    })
-  }
 }
 </script>
 
