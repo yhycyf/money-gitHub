@@ -54,6 +54,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 import store from '../../store'
+import qs from 'qs';
+
 export default {
     data () {
         return {
@@ -65,14 +67,13 @@ export default {
             return this.$store.getters.getxianshi_Info
         }
     },
-    computed: {
+    methods: {
         getApp (encodedId) {
+            const data = { 'task': encodedId };
             axios({
                 method: "POST",
                 url: 'http://scorewall.lieqicun.cn/ios/task/ah/ha',
-                data: {
-                    'task': encodedId,
-                },
+                data: qs.stringify(data),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
