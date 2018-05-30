@@ -2,7 +2,7 @@
     <div class="yizhuan_box">
         <div class="xianshi_box">
             <!-- 普通限时任务 -->
-            <div class="xianshi_list" v-for="(item, index) in getdata" :index="index" :key="item.id">
+            <div class="xianshi_list" v-for="(item, index) in getdata" :index="index" :key="item.id" @click="getApp(item.encodedId)">
                 <em class="border_left"><img height="100%" src="../../../static/images/img/zuo.png" /></em>
                 <b><img :src="item.icon"/></b>
                 <div class="xianshi_text fl">
@@ -51,6 +51,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import store from '../../store'
 export default {
     data () {
         return {
@@ -61,6 +64,28 @@ export default {
         getdata () {
             return this.$store.getters.getxianshi_Info
         }
+    },
+    computed: {
+        getApp (encodedId) {
+            axios({
+                method: "POST",
+                url: 'http://scorewall.lieqicun.cn/ios/task/ah/ha',
+                data: {
+                    'task': encodedId,
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }).then(function(res) {
+                console.log(res);
+            });
+            console.log(encodedId)
+            // let encoded_Id = encodedId
+            // let LocalAPI = 'http://scorewall.lieqicun.cn/ios/task/ah/ha'
+        }
+    },
+    mounted () {
+        // console.log(this.$refs.xianshi)
     }
 }
 </script>

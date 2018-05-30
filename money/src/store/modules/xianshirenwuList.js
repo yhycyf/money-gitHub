@@ -1,7 +1,7 @@
 
 const xianshirenwuList = {
 	state: {
-		xianshiInfo:{}
+		xianshiInfo: {}
 	},
 	mutations: {
 		setxianshiInfo (state, obj) {
